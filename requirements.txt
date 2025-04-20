@@ -1,5 +1,6 @@
 tensorflow
 pandas
 numpy
-sklearn
+streamlit
+scikit-learn
 joblib
