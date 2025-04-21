@@ -28,10 +28,6 @@ def load_lottie_url(url):
 lottie_guns = load_lottie_url("https://assets6.lottiefiles.com/packages/lf20_j1adxtyb.json")
 lottie_chatbot = load_lottie_url("https://assets4.lottiefiles.com/packages/lf20_4kx2q32n.json")
 lottie_fireworks = load_lottie_url("https://assets3.lottiefiles.com/packages/lf20_V9t630.json")
-lottie_customer_satisfaction = load_lottie_url("https://assets5.lottiefiles.com/packages/lf20_HJp9Uw.json")  # Fallback Lottie for testing
-
-# ---- Fallback image if Lottie fails ----
-fallback_image_url = "https://www.example.com/static_image.png"  # Example of fallback image URL
 
 # ---- SNOWFALL ON ENTRY ----
 st.snow()
@@ -55,17 +51,13 @@ st.markdown(f"""
     </div>
 """, unsafe_allow_html=True)
 
-# ---- GUNFIRE STICKER (LEFT-HAND SIDE), CUSTOMER SATISFACTION (CENTER) AND CHATBOT STICKER (RIGHT-HAND SIDE) ----
-col1, col2, col3 = st.columns([1, 8, 1])  # Corrected to have three columns (for left, middle, right)
+# ---- LEFT & RIGHT STICKERS ONLY ----
+col1, col2, col3 = st.columns([1, 8, 1])
 
 with col1:
     if lottie_guns:
         st_lottie(lottie_guns, height=110, key="gunfire")
-with col2:
-    if lottie_customer_satisfaction:
-        st_lottie(lottie_customer_satisfaction, height=110, key="customer_satisfaction")  # Placed in the center
-    else:
-        st.image(fallback_image_url, width=110)  # Fallback to static image if Lottie doesn't load
+
 with col3:
     if lottie_chatbot:
         st_lottie(lottie_chatbot, height=110, key="chatbot")
